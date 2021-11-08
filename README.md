@@ -39,3 +39,21 @@ This app will use the functional coding style for Backend and frontend .
 ## Useful urls
 - Backend Url: http://localhost:3333/
 - React Url: http://localhost:3000/
+
+
+> ## Database
+> Install postgres using [brew](https://brew.sh/) 
+> `brew install postgresql`
+> 
+> Start postgres `brew services start postgresql`
+> 
+> Stop postgres `brew services stop postgresql`
+> 
+> Login to postgres `psql postgres`
+> 
+> Create user for our app `CREATE ROLE fullStackDeveloper WITH LOGIN PASSWORD '<password from properties>';`
+> 
+> Add createDb role `ALTER ROLE fullStackDeveloper CREATEDB`
+> 
+> Login using created role `psql postgres -U fullstackdeveloper`
+> 

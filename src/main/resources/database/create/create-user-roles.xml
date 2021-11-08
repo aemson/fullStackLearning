@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="create-user-roles" author="aemsonm" logicalFilePath="create/create-user-roles.xml">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user_roles"/>
+            </not>
+        </preConditions>
+        <createTable tableName="user_roles">
+            <column name="user_role_id" type="numeric"/>
+            <column name="user_role" type="text">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_roles_pk"/>
+            </column>
+            <column name="user_role_description" type="text"/>
+            <column name="created_at" type="timestamp" defaultValue="now()"/>
+            <column name="created_by" type="text" defaultValue="admin"/>
+        </createTable>
+        <sql>
+            insert into user_roles (user_role_id, user_role, user_role_description) values (1, 'ADMIN', 'Has full access over all apps');
+            insert into user_roles (user_role_id, user_role, user_role_description) values (2, 'MANAGER', 'Has approval access for apps');
+            insert into user_roles (user_role_id, user_role, user_role_description) values (3, 'USER', 'Has limited access over all apps');
+            insert into user_roles (user_role_id, user_role, user_role_description) values (4, 'HELPDESK', 'Has read-only access over all apps');
+            insert into user_roles (user_role_id, user_role, user_role_description) values (5, 'MAINTENANCE', 'Has restricted access to apps');
+        </sql>
+        <rollback>
+            drop table user_roles;
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

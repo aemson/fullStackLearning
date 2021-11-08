@@ -17,3 +17,25 @@ server:
   port: 3333
   servlet:
     context-path: /
+
+database:
+  url: jdbc:postgresql://localhost:5432/postgres
+  username: fullstackdeveloper
+  password: ZnVsbFN0YWNrRGV2ZWxvcGVyUGFzc3dvcmQ=
+  driverClassName: org.postgresql.Driver
+  jndi: "fullstack-db-pool"
+  testQuery: "SELECT 1"
+  pool:
+    maxPoolSize: 2
+    minPoolSize: 1
+    maxLifetime: 60000
+    validationTimeout: 1000
+    leakDetectionThreshold: 7000
+    connectionTimeout: 3000
+    idleTimeout: 3000
+
+spring:
+  liquibase:
+    enabled: true
+    contexts: dev
+    change-log: classpath:database/change-db.xml

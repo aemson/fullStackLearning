@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet id="create-application-messages" author="aemsonm" logicalFilePath="create/create-application-messages.xml">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="application_messages"/>
+            </not>
+        </preConditions>
+        <createTable tableName="application_messages">
+            <column name="message_id" type="varchar(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="message_id_pk"/>
+            </column>
+            <column name="message_code" type="text"/>
+            <column name="message_description" type="varchar(255)"/>
+            <column name="created_at" type="timestamp" defaultValue="now()"/>
+        </createTable>
+        <rollback>
+            drop table application_messages;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
