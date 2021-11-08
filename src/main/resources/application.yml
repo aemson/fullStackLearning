@@ -1,3 +1,19 @@
-../.idea/
-../fullStackLearning.iml
-../target/
+welcome:
+  message: You are at Full stack Learning 👨🏻‍💻
+server:
+  error:
+    whitelabel:
+      enabled: false
+    path: /common/error
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /dev
+      prefix: stdout
+      buffered: false
+      suffix: ""
+      file-date-format: ""
+      pattern: '%a - - %t "%r" %s %b "%{referer}i" "%{user-agent}i" "CID:%{x-request-id}o" %D'
+  port: 3333
+  servlet:
+    context-path: /
