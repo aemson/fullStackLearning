@@ -1,4 +1,4 @@
-package com.fsl.db
+package com.fsl.dao.db
 
 import com.fsl.domain.DatasourceProperties
 import com.zaxxer.hikari.HikariConfig
