@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./components/home";
+import OrderPizza from "./components/OrderPizza";
+import SimpleJsx from "./components/SimpleJsx";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <BrowserRouter basename=''>
+            <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/orderPizza' element={<OrderPizza/>}/>
+                <Route path='/orders' element={<Home/>}/>
+                <Route path='/react' element={<SimpleJsx/>}/>
+            </Routes>
+        </BrowserRouter>
+    );
+
 }
 
 export default App;
+
+

@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.block {
+  display: block;
+  color: aqua;
+}
+
+fieldset {
+  margin-bottom: 1rem;
+}
+
+address {
+  font-style: normal;
+}
+

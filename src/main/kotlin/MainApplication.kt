@@ -1,5 +1,6 @@
 package com.fsl
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.builder.SpringApplicationBuilder
 import org.springframework.boot.web.servlet.ServletComponentScan
@@ -9,6 +10,7 @@ import java.lang.System.setProperty
 
 @SpringBootApplication
 @ServletComponentScan
+@OpenAPIDefinition
 open class MainApplication
 
 fun main(args: Array<String>) {
