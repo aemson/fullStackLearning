@@ -26,6 +26,9 @@ class WelcomeController(val userDetailsService: UserDetailsService) {
             status(OK).cacheControl(noCache()).body(it)
         }
 
+    fun getLambda():(acc: Int, ele: Int)-> Int ={ acc, ele ->
+         acc + ele
+    }
     val add: (Int, Int) -> Int = { x, y -> x + y }
     val divide: (Int, Int) -> Double = { x, y -> x.toDouble() + y.toDouble() }
 

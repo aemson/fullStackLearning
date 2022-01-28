@@ -39,6 +39,17 @@ spring:
     enabled: false
     contexts: dev
     change-log: classpath:database/change-db.xml
+  kafka:
+    bootstrap-servers: server:9093
+    properties:
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR_KEY}";
+      sasl.mechanism: PLAIN
+      security.protocol: SASL_SSL
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+topic:
+  name: topic-name
+
 
 springdoc:
   api-docs:
@@ -47,3 +58,14 @@ springdoc:
     disable-swagger-default-url: true
     path: /fsl/swagger-ui.html
   packagesToScan: com.fsl.controller
+
+springfox:
+  documentation:
+    swaggerUi:
+      baseUrl: /documentation
+    openApi:
+      v3:
+        path: /documentation/v3/api-docs/welcome
+    swagger:
+      v2:
+        path: /documentation/v2/api-docs/admin
